@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/equitas-front-end-challenge/static/css/main.ccfb29bb.css",
+    "main.js": "/equitas-front-end-challenge/static/js/main.f38d06aa.js",
+    "static/js/787.e3b995fc.chunk.js": "/equitas-front-end-challenge/static/js/787.e3b995fc.chunk.js",
+    "index.html": "/equitas-front-end-challenge/index.html",
+    "main.ccfb29bb.css.map": "/equitas-front-end-challenge/static/css/main.ccfb29bb.css.map",
+    "main.f38d06aa.js.map": "/equitas-front-end-challenge/static/js/main.f38d06aa.js.map",
+    "787.e3b995fc.chunk.js.map": "/equitas-front-end-challenge/static/js/787.e3b995fc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ccfb29bb.css",
+    "static/js/main.f38d06aa.js"
+  ]
+}
