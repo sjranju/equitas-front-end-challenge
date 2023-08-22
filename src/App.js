@@ -1,14 +1,15 @@
 import './App.css';
 import { useState, useEffect } from "react";
 import Launches from "./components/Launches";
-import { Button, Container } from "@mui/material";
+import { Button, Container, Stack, Typography, Box } from "@mui/material";
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 function App() {
 
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1)
     const apiUrl = 'https://api.spacexdata.com/v4/launches/query';
-
+    console.log(data)
     function getQueryBody(pageNumber) {
         return {
             query: {
@@ -113,6 +114,7 @@ function App() {
 
     useEffect(() => {
         fetchData(currentPage);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const nextPage = () => {
@@ -125,10 +127,12 @@ function App() {
     }
 
     return (
-        <div>
+        <Box style={{ backgroundColor: 'whitesmoke' }} padding={2}>
 
-            <Container>
-                <p>Total Launches: {data["totalDocs"]}</p>
+            <Container >
+                <Stack direction={'row'} alignItems={'center'} justifyContent={'center'} marginBottom={2} spacing={1} >
+                    <Typography style={{ fontWeight: "bold" }}>Total {data["totalDocs"]} </Typography><RocketLaunchIcon />
+                </Stack>
                 {data["docs"] ? (
                     <div>
                         <Launches launches={data["docs"]} />
@@ -144,7 +148,7 @@ function App() {
 
             </Container>
 
-        </div>
+        </Box>
     );
 }
 export default App;

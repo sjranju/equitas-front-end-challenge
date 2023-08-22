@@ -1,14 +1,14 @@
-import {Grid, Paper} from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import Launch from "../Launch";
 import styles from './launches.module.css';
 
-const Launches = ({launches}) =>  {
+const Launches = ({ launches }) => {
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} >
             {launches.map((launch) => (
-                <Grid key={launch.id} item xs={4}>
+                <Grid key={launch.id} item sm={4}>
                     <Paper className={styles.page}>
-                        <Launch props={launch}/>
+                        <Launch props={launch} />
                     </Paper>
                 </Grid>
             ))}
