@@ -127,17 +127,17 @@ function MainPage() {
     }
 
     return (
-        <Box style={{ backgroundImage: `url('./images/spacex6.jpg')`, backgroundSize:'cover' , opacity:0.88}} padding={2}>
+        <Box style={{ backgroundImage: `url('./images/spacex6.jpg')`, backgroundSize:'cover' , opacity:0.88, color:'white'}} padding={2}>
 
             <Container >
                 <Stack direction={'row'} alignItems={'center'} justifyContent={'center'} marginBottom={2} spacing={1} >
-                    <Typography style={{ fontWeight: "bold", color:'white'}}>Total {data["totalDocs"]} </Typography>
+                    <Typography variant='h5' style={{ fontWeight: 'bolder', color:'white'}}>Total {data["totalDocs"]} </Typography>
                     <RocketLaunchIcon style={{ fontWeight: "bold", color:'white'}}/>
                 </Stack>
                 {data["docs"] ? (
                     <div>
                         <Launches launches={data["docs"]} />
-                        <Typography variant='body2' m={1}>Page {data["page"]} / {data["totalPages"]} </Typography>
+                        <Typography variant='body2' marginTop={3}>Page {data["page"]} / {data["totalPages"]} </Typography>
                         <Button variant='contained' onClick={prevPage} disabled={currentPage === 1} color='warning'>Prev Page</Button>
                         <Button variant="contained" onClick={nextPage} disabled={currentPage === data["totalPages"]}>Next
                             Page</Button>

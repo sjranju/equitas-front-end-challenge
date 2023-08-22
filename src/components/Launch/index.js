@@ -5,6 +5,7 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import RedditIcon from '@mui/icons-material/Reddit';
 import { TiSocialFlickr } from 'react-icons/ti'
+import { TbRulerMeasure } from 'react-icons/tb'
 
 const Launch = ({ props }) => {
     const openLink = (link) => {
@@ -27,11 +28,23 @@ const Launch = ({ props }) => {
                         <img src={props.links.patch.small} alt='rocket' width={40} height={40} margin={0}></img>
                         : ''
                 }
-
-                <Typography variant='subtitle2' fontWeight={600} className={styles.launchTitle}>{props.name}</Typography>
-                <Typography variant='body2'>Id: {props.id}</Typography>
-                <Typography variant='body2'>Flight Number: {props.flight_number}</Typography>
+                <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} spacing={0.2}>
+                    <Typography variant='subtitle2' fontWeight={200} className={styles.launchTitle}>Launch Name: </Typography>
+                    <Typography variant='subtitle2' className={styles.launchName} >{props.name}</Typography>
+                </Stack>
+                <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} spacing={0.2}>
+                    <Typography variant='body1' fontWeight={200} className={styles.launchTitle}>Rocket Name: </Typography>
+                    <Typography variant='body1' fontWeight={100}>{props.rocket.name}</Typography>
+                </Stack>
+                {/* <Typography variant='body2'>Id: {props.id}</Typography>
+                <Typography variant='body2'>Flight Number: {props.flight_number}</Typography> */}
                 <Stack direction={'row'} spacing={1} justifyContent={'center'} alignItems={'center'}>
+                    <Tooltip title={`Height:${props.rocket.height}, Diameter:${props.rocket.diameter}, Mass: ${props.rocket.mass}`} arrow>
+                        <IconButton>
+                            <TbRulerMeasure color='white' />
+                        </IconButton>
+
+                    </Tooltip>
                     <Tooltip title={`${moment(props.date_utc).format('MMMM Do YYYY, h:mm:ss a')}`} arrow>
                         <IconButton>
                             <AccessTimeFilledIcon style={{ color: 'white' }} />
@@ -42,9 +55,11 @@ const Launch = ({ props }) => {
                             <YouTubeIcon style={{ color: 'red' }} />
                         </IconButton>
                     </Tooltip>
-                    <Tooltip>
-                        <IconButton onClick={() => props.links.reddit.launch && openLink(props.links.reddit.launch)}>
-                            <RedditIcon style={{ color: 'red' }} />
+                    <Tooltip >
+                        <IconButton onClick={() => props.links.reddit.launch && openLink(props.links.reddit.launch)} sx={{ ':hover': `${styles.iconHoverEffect}` }} >
+                            <RedditIcon style={{
+                                color: 'red',
+                            }} />
                         </IconButton>
                     </Tooltip>
                     <Tooltip>

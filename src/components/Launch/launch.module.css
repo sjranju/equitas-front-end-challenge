@@ -1,5 +1,21 @@
 
 .launchTitle{
+    font-style:Italic;
     font-weight: bold;
     font-size: large;
+}
+
+.iconHoverEffect{
+    transform:scale(2,2)
+}
+
+.launchName{
+    font-weight:100;
+    white-space: nowrap; 
+    /* width: 150px;  */
+    max-width:150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* cursor:pointer; */
+    transition: all 0.3s ease-in-out;
 }
