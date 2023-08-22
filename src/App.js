@@ -1,7 +1,7 @@
 import './App.css';
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Launches from "./components/Launches";
-import {Button, Container} from "@mui/material";
+import { Button, Container } from "@mui/material";
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
     const apiUrl = 'https://api.spacexdata.com/v4/launches/query';
 
     function getQueryBody(pageNumber) {
-        return  {
+        return {
             query: {
                 upcoming: false,
                 success: true
@@ -131,13 +131,13 @@ function App() {
                 <p>Total Launches: {data["totalDocs"]}</p>
                 {data["docs"] ? (
                     <div>
-                        <Launches launches={data["docs"]}/>
+                        <Launches launches={data["docs"]} />
                         <p>Page {data["page"]} / {data["totalPages"]} </p>
                         <Button variant="outlined" onClick={prevPage} disabled={currentPage === 1}>Prev Page</Button>
                         <Button variant="outlined" onClick={nextPage} disabled={currentPage === data["totalPages"]}>Next
-                           Page</Button>
+                            Page</Button>
 
-                   </div>
+                    </div>
                 ) : (
                     <div>Loading...</div>
                 )}
