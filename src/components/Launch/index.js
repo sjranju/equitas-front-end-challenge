@@ -4,14 +4,13 @@ import moment from 'moment'
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import RedditIcon from '@mui/icons-material/Reddit';
-import { TiSocialFlickr } from 'react-icons/ti'
-import { TbRulerMeasure } from 'react-icons/tb'
+import { TiSocialFlickr } from 'react-icons/ti';
+import { TbRulerMeasure } from 'react-icons/tb';
 
 const Launch = ({ props }) => {
     const openLink = (link) => {
         window.open(link, '_blank')
     }
-
     return (
         <Box display={'flex'} flexDirection={'column'}>
             {/* <Stack direction={'row'} useFlexGap spacing={{ xs: 1, sm: 2 }} justifyContent={'center'} alignItems={'center'} m={1}>
@@ -39,13 +38,15 @@ const Launch = ({ props }) => {
                 {/* <Typography variant='body2'>Id: {props.id}</Typography>
                 <Typography variant='body2'>Flight Number: {props.flight_number}</Typography> */}
                 <Stack direction={'row'} spacing={1} justifyContent={'center'} alignItems={'center'}>
-                    <Tooltip title={`Height:${props.rocket.height}, Diameter:${props.rocket.diameter}, Mass: ${props.rocket.mass}`} arrow>
+                    <Tooltip
+                        title={<Typography sx={{ fontSize: '13px', width: '400px', border: 'none', boxShadow: 'none', margin: 'none' }}>Height:${props.rocket.height.meters} mt, Diameter:${props.rocket.diameter.meters} ft, Mass: ${props.rocket.mass.kg} lb</Typography>}
+                        arrow
+                    >
                         <IconButton>
                             <TbRulerMeasure color='white' />
                         </IconButton>
-
                     </Tooltip>
-                    <Tooltip title={`${moment(props.date_utc).format('MMMM Do YYYY, h:mm:ss a')}`} arrow>
+                    <Tooltip title={<Typography sx={{ fontSize: '13px' }}>${moment(props.date_utc).format('MMMM Do YYYY, h:mm:ss a')}</Typography>} >
                         <IconButton>
                             <AccessTimeFilledIcon style={{ color: 'white' }} />
                         </IconButton>
@@ -68,7 +69,7 @@ const Launch = ({ props }) => {
                         </IconButton>
                     </Tooltip>
                 </Stack>
-            </Box>
+            </Box >
         </Box >
     )
 

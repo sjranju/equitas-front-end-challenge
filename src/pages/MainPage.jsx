@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Launches from "../components/Launches";
 import { Button, Container, Stack, Typography, Box } from "@mui/material";
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+// import {red} from '@mui/material/colors'
 
 function MainPage() {
 
@@ -139,7 +140,7 @@ function MainPage() {
                         <Launches launches={data["docs"]} />
                         <Typography variant='body2' marginTop={3}>Page {data["page"]} / {data["totalPages"]} </Typography>
                         <Button variant='contained' onClick={prevPage} disabled={currentPage === 1} color='warning'>Prev Page</Button>
-                        <Button variant="contained" onClick={nextPage} disabled={currentPage === data["totalPages"]}>Next
+                        <Button variant="contained" onClick={nextPage} disabled={currentPage === data["totalPages"]} color='success'>Next
                             Page</Button>
 
                     </div>

@@ -19,3 +19,8 @@
     /* cursor:pointer; */
     transition: all 0.3s ease-in-out;
 }
+
+.tooltipText{
+    font-size:16px;
+    backgroound-color:'red';
+}
