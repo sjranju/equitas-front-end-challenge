@@ -136,9 +136,9 @@ function App() {
                 {data["docs"] ? (
                     <div>
                         <Launches launches={data["docs"]} />
-                        <p>Page {data["page"]} / {data["totalPages"]} </p>
-                        <Button variant="outlined" onClick={prevPage} disabled={currentPage === 1}>Prev Page</Button>
-                        <Button variant="outlined" onClick={nextPage} disabled={currentPage === data["totalPages"]}>Next
+                        <Typography variant='body2' m={1}>Page {data["page"]} / {data["totalPages"]} </Typography>
+                        <Button variant='contained' onClick={prevPage} disabled={currentPage === 1} color='warning'>Prev Page</Button>
+                        <Button variant="contained" onClick={nextPage} disabled={currentPage === data["totalPages"]}>Next
                             Page</Button>
 
                     </div>

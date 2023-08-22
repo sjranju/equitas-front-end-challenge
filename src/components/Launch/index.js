@@ -1,9 +1,15 @@
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography, IconButton, Tooltip } from '@mui/material'
 import styles from './launch.module.css'
 import moment from 'moment'
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import RedditIcon from '@mui/icons-material/Reddit';
+import { TiSocialFlickr } from 'react-icons/ti'
 
 const Launch = ({ props }) => {
+    const openLink = (link) => {
+        window.open(link, '_blank')
+    }
 
     return (
         <Box display={'flex'} flexDirection={'column'}>
@@ -22,11 +28,29 @@ const Launch = ({ props }) => {
                 <Typography variant='body2'>Id: {props.id}</Typography>
                 <Typography variant='body2'>Flight Number: {props.flight_number}</Typography>
                 <Stack direction={'row'} spacing={1} justifyContent={'center'} alignItems={'center'}>
-                    <AccessTimeFilledIcon />
-                    <Typography variant='body2'> {moment(props.date_utc).format('MMMM Do YYYY, h:mm:ss a')}</Typography>
+                    <Tooltip title={`${moment(props.date_utc).format('MMMM Do YYYY, h:mm:ss a')}`} arrow>
+                        <IconButton>
+                            <AccessTimeFilledIcon style={{ color: 'black' }} />
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip>
+                        <IconButton onClick={() => openLink(props.links.webcast)}>
+                            <YouTubeIcon style={{ color: 'red' }} />
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip>
+                        <IconButton onClick={() => props.links.reddit.launch && openLink(props.links.reddit.launch)}>
+                            <RedditIcon style={{ color: 'red' }} />
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip>
+                        <IconButton onClick={() => openLink(props.links.webcast)}>
+                            <TiSocialFlickr style={{ color: 'blue' }} />
+                        </IconButton>
+                    </Tooltip>
                 </Stack>
             </Box>
-        </Box>
+        </Box >
     )
 
 }
